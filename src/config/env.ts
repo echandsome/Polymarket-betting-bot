@@ -42,5 +42,5 @@ export const ENV = {
     WSS_URL: process.env.WSS_URL as string,
     USDC_CONTRACT_ADDRESS: process.env.USDC_CONTRACT_ADDRESS as string,
     POLYMARKET_CONTRACT_ADDRESS: process.env.POLYMARKET_CONTRACT_ADDRESS as string,
-    MONGO_URI: 'mongodb+srv://KingCode0624:Password123@cluster0.xrjllyw.mongodb.net/',
+    MONGO_URI: process.env.MONGO_URI as string,
 };
