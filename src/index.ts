@@ -1,9 +1,7 @@
 import readline from 'readline';
 import connectDB from './config/db';
 import createClobClient from './utils/createClobClient';
-import { ClobClient } from '@polymarket/clob-client';
 import ora from 'ora';
-import test from './test/test';
 import TradeMonitor from './services/tradeMonitor';
 import tradeExecutor from './services/tradeExecutor';
 import { TradeParams } from './interfaces/tradeInterfaces';
