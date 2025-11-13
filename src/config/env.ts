@@ -1,9 +1,6 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-if (!process.env.PUBLIC_ADDRESS) {
-    throw new Error('USER_ADDRESS is not defined');
-}
 if (!process.env.PROXY_WALLET) {
     throw new Error('PROXY_WALLET is not defined');
 }
@@ -33,9 +30,6 @@ if (!process.env.POLYMARKET_CONTRACT_ADDRESS) {
 }
 
 export const ENV = {
-    // ⚠️ UNUSED: This variable is validated but not used anywhere in the codebase
-    // Consider removing this validation and export if not needed
-    PUBLIC_ADDRESS: process.env.PUBLIC_ADDRESS as string,
     
     // 🎯 YOUR TRADING WALLET: This is YOUR wallet address that will execute trades
     // - Must have USDC balance for trading
