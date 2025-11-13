@@ -1,6 +1,5 @@
 import readline from 'readline';
 import connectDB from './config/db';
-import createClobClient from './utils/createClobClient';
 import ora from 'ora';
 import TradeMonitor from './services/tradeMonitor';
 import tradeExecutor from './services/tradeExecutor';
@@ -52,15 +51,13 @@ export const main = async () => {
     const connectDBSpinner = ora('Connecting DB...').start();
     await connectDB();
     connectDBSpinner.succeed('Connected to MongoDB.\n');
-    const createClobClientSpinner = ora('Creating ClobClient...').start();
-    const clobClient = await createClobClient();
-    createClobClientSpinner.succeed('ClobClient created\n');
+
     const params = await promptUser();
     
     const botStartSpinner = ora('Starting the bot...').start();
     const monitor = new TradeMonitor();
     monitor.on('transaction', (data) => {
-        tradeExecutor(clobClient, data, params);
+        tradeExecutor(data, params);
     });
     monitor.start(params.targetWallet);
     botStartSpinner.succeed('Bot started\n');
